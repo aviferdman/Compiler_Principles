@@ -41,12 +41,27 @@ let normalize_scheme_symbol str =
 
 
 (* start of my code *)
+
 open PC ;;
-(* number parses *))
+
+(* number parses *)
 let p_digit = range '0' '9' ;;
 let p_natural = plus p_digit ;; 
 
-(* *))
+(* char parsers *)
+let p_equal = char '=' ;;
+let p_dot = char '.' ;; 
+let p_Lparentheses1 = char '(' ;;
+let p_Rparentheses1 = char ')' ;;
+let p_Lparentheses2 = char '{' ;;
+let p_Rparentheses2 = char '}' ;;
+
+(* quotations parsers *)
+let p_quote = char '\'' ;;
+let p_Qquote = char '`' ;;
+let p_Uquote = char ',' ;;
+let p_UASquote = word_ci ",@" ;;
+
 (* end of my code *)
 
 let read_sexprs string = raise X_not_yet_implemented;;
